@@ -25,6 +25,9 @@
 html {
   box-sizing: border-box;
   font-size: 62.5%; }
+  @media only screen and (max-width: 900px) {
+    html {
+      font-size: 50%; } }
 
 body {
   font-family: 'Open Sans', sans-serif;
@@ -133,10 +136,20 @@ body {
   font-size: 1.4rem;
   list-style: none;
   margin-top: 3.5rem; }
+  @media only screen and (max-width: 900px) {
+    .side-nav {
+      display: flex;
+      margin: 0; } }
   .side-nav_item {
     position: relative; }
     .side-nav_item:not(:last-child) {
       margin-bottom: .5rem; }
+      @media only screen and (max-width: 900px) {
+        .side-nav_item:not(:last-child) {
+          margin-bottom: 0rem; } }
+    @media only screen and (max-width: 900px) {
+      .side-nav_item {
+        flex: 1; } }
   .side-nav_item::before {
     content: "";
     position: absolute;
@@ -152,6 +165,9 @@ body {
     width: 100%; }
   .side-nav_item:active::before {
     background-color: var(--color-primary-light); }
+  @media only screen and (max-width: 900px) {
+    .side-nav_link {
+      justify-content: center; } }
   .side-nav_link:link, .side-nav_link:visited {
     color: var(--color-grey-light-1);
     text-decoration: none;
@@ -173,6 +189,9 @@ body {
   color: var(--color-grey-light-4);
   text-align: center;
   padding: 2.5rem; }
+  @media only screen and (max-width: 900px) {
+    .legal {
+      display: none; } }
 
 .gallery {
   display: flex; }
@@ -273,11 +292,16 @@ body {
     height: 1rem;
     width: 1rem;
     margin-right: .7rem;
-    background-color: var(--color-primary);
-    -webkit-mask-image: url(../img/chevron-thin-right.svg);
-    -webkit-mask-size: cover;
-    mask-image: url(../img/chevron-thin-right.svg);
-    mask-size: cover; }
+    background-image: url(../img/chevron-thin-right.svg);
+    background-size: cover; }
+    @supports (-webkit-mask-image: url()) or (mask-image: url()) {
+      .list_item::before {
+        background-color: var(--color-primary);
+        -webkit-mask-image: url(../img/chevron-thin-right.svg);
+        -webkit-mask-size: cover;
+        mask-image: url(../img/chevron-thin-right.svg);
+        mask-size: cover;
+        background-image: none; } }
 
 .recommend {
   font-size: 1.3rem;
@@ -286,6 +310,8 @@ body {
   align-items: center; }
   .recommend_count {
     margin-right: auto; }
+  .recommend_friends {
+    display: flex; }
   .recommend_photo {
     box-sizing: content-box;
     height: 4rem;
@@ -388,6 +414,9 @@ body {
   background-color: var(--color-grey-light-2);
   box-shadow: var(--shadow-dark);
   min-height: 50rem; }
+  @media only screen and (max-width: 1200px) {
+    .container {
+      margin: 0; } }
 
 .header {
   font-size: 1.4rem;
@@ -400,6 +429,9 @@ body {
 
 .content {
   display: flex; }
+  @media only screen and (max-width: 900px) {
+    .content {
+      flex-direction: column; } }
 
 .sidebar {
   background-color: var(--color-grey-dark-1);
@@ -417,6 +449,12 @@ body {
   padding: 4.5rem;
   background-color: var(--color-grey-light-1);
   border-bottom: var(--line); }
+  @media only screen and (max-width: 900px) {
+    .detail {
+      padding: 3rem; } }
+  @media only screen and (max-width: 600px) {
+    .detail {
+      flex-direction: column; } }
 
 .description {
   background-color: #fff;
@@ -424,6 +462,14 @@ body {
   padding: 3rem;
   flex: 0 0 60%;
   margin-right: 4.5rem; }
+  @media only screen and (max-width: 900px) {
+    .description {
+      padding: 2rem;
+      margin-right: 3rem; } }
+  @media only screen and (max-width: 600px) {
+    .description {
+      margin-right: 0;
+      margin-bottom: 3rem; } }
 
 .user-reviews {
   flex: 1;
